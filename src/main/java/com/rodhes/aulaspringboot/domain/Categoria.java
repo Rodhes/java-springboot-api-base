@@ -3,12 +3,17 @@ package com.rodhes.aulaspringboot.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Categoria implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
-	
-	
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 
@@ -18,10 +23,11 @@ public class Categoria implements Serializable {
 		this.nome = nome;
 
 	}
+
 	public Categoria() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -41,10 +47,12 @@ public class Categoria implements Serializable {
 	public String toString() {
 		return "Categoria [id=" + id + ", nome=" + nome + "]";
 	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -56,6 +64,5 @@ public class Categoria implements Serializable {
 		Categoria other = (Categoria) obj;
 		return Objects.equals(id, other.id);
 	}
-	
 
 }
